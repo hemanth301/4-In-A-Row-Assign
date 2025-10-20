@@ -1,5 +1,4 @@
-# 4-In-A-Row-Assign
-🎮 Four-in-a-Row
+# 🎮 Four-in-a-Row
 
 A full-stack multiplayer **Connect Four** game with real-time gameplay, leaderboard tracking, analytics, and bot support.
 
@@ -17,6 +16,7 @@ A full-stack multiplayer **Connect Four** game with real-time gameplay, leaderbo
 - [How to Run](#how-to-run)
 - [API Endpoints](#api-endpoints)
 - [License](#license)
+- [Key Source Files](#key-source-files)
 
 ---
 
@@ -50,7 +50,6 @@ This project implements a classic **Four-in-a-Row (Connect Four)** game with the
 ---
 
 ## 📂 Directory Structure
-
 four-in-a-row/
 backend/
 cmd/server/ # Main server entrypoint
@@ -70,8 +69,6 @@ vite.config.js # Vite dev server config
 docker-compose.yml # Orchestrates Postgres, Kafka, Zookeeper
 go.mod # Go dependencies
 
-markdown
-Copy code
 
 ---
 
@@ -133,9 +130,9 @@ See [`internal/models/schema.sql`](internal/models/schema.sql) for implementatio
 ## 🔄 Kafka Analytics
 
 - **Events Produced:**  
-  - game_started 
-  - move_made  
-  - game_finished
+  - `game_started`  
+  - `move_made`  
+  - `game_finished`
 
 - **Producer:** Emits analytics for each major game event.  
 - **Consumer:** Can be extended for real-time dashboards or reporting.
@@ -150,28 +147,31 @@ Make sure Docker is installed, then run:
 docker-compose up
 This starts PostgreSQL, Kafka, and Zookeeper.
 
-2. Run the Go Backend
-bash
-Copy code
+### 2. Run the Go Backend
 cd backend
 go run cmd/server/main.go
+
+
 Server runs on http://localhost:8080
 
-3. Run the React Frontend
-bash
-Copy code
+### 3. Run the React Frontend
 cd frontend
 npm install
 npm run dev
+
+
 Frontend runs on http://localhost:5173
+
 (Proxies /ws and /leaderboard requests to the backend.)
 
-🌐 API Endpoints
+### 🌐 API Endpoints
 Method	Endpoint	Description
 GET	/ws?username=...	Opens a WebSocket for a game session
 GET	/leaderboard	Returns top players (excluding bot)
 
+
 📁 Key Source Files
+
 internal/game/game.go
 
 internal/server/ws.go
@@ -181,3 +181,5 @@ frontend/src/App.jsx
 internal/routes/api.go
 
 internal/server/pgstore.go
+
+

@@ -1,0 +1,173 @@
+.container {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  max-width: 480px;
+  margin: 32px auto;
+  background: rgba(30, 34, 44, 0.85);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 #000a, 0 0 32px 8px #fff2 inset;
+  padding: 32px 24px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid #fff3;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 1.2s cubic-bezier(.42,0,.58,1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.header {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 16px #fff8, 0 0 32px #66a6ff88;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+  animation: glowText 2s infinite alternate;
+}
+@keyframes glowText {
+  from { text-shadow: 0 0 8px #fff, 0 0 32px #66a6ff88; }
+  to { text-shadow: 0 0 24px #fff, 0 0 48px #66a6ffcc; }
+}
+.usernameBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  gap: 8px;
+  animation: fadeIn 1.2s 0.2s backwards;
+}
+.input {
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #fff4;
+  background: #222a;
+  color: #fff;
+  box-shadow: 0 0 8px #fff2 inset;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+.input:focus {
+  box-shadow: 0 0 16px #66a6ff88;
+}
+.button {
+  background: linear-gradient(90deg, #66a6ff 0%, #89f7fe 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 16px #66a6ff88, 0 0 8px #fff2 inset;
+  transition: box-shadow 0.3s, transform 0.2s;
+  animation: pulseBtn 1.5s infinite alternate;
+}
+.button:hover {
+  box-shadow: 0 0 32px #66a6ffcc, 0 0 16px #fff4 inset;
+  transform: scale(1.05);
+}
+@keyframes pulseBtn {
+  from { box-shadow: 0 0 16px #66a6ff88; }
+  to { box-shadow: 0 0 32px #66a6ffcc; }
+}
+.status {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #66a6ff;
+  font-weight: bold;
+  text-shadow: 0 0 8px #66a6ff88;
+  animation: fadeIn 1.2s 0.3s backwards;
+}
+.error {
+  color: #ff5e62;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 0 0 8px #ff5e62aa;
+}
+.gameInfo {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #fff;
+  text-shadow: 0 0 8px #fff2;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(7, 44px);
+  grid-template-rows: repeat(6, 44px);
+  gap: 8px;
+  background: rgba(60, 70, 90, 0.7);
+  border-radius: 24px;
+  box-shadow: 0 0 32px #fff2 inset, 0 0 16px #66a6ff44;
+  padding: 16px;
+  margin: 0 auto 16px auto;
+  animation: fadeIn 1.2s 0.4s backwards;
+}
+.cell {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 8px #fff2 inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.cell:hover {
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 16px #66a6ff88 inset;
+}
+.leaderboard {
+  margin-top: 24px;
+  animation: fadeIn 1.2s 0.5s backwards;
+}
+.leaderboardTable {
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(30, 34, 44, 0.85);
+  box-shadow: 0 0 16px #fff2 inset;
+  color: #fff;
+  margin-top: 12px;
+  overflow: hidden;
+  animation: fadeIn 1.2s 0.6s backwards;
+}
+.leaderboardTable th, .leaderboardTable td {
+  padding: 8px 12px;
+  text-align: center;
+  border-bottom: 1px solid #fff2;
+}
+.leaderboardTable tr {
+  animation: rowFadeIn 1s cubic-bezier(.42,0,.58,1);
+}
+@keyframes rowFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+    padding: 12px 4vw;
+  }
+  .board {
+    grid-template-columns: repeat(7, 32px);
+    grid-template-rows: repeat(6, 32px);
+    gap: 3px;
+    padding: 6px;
+  }
+  .cell {
+    width: 32px;
+    height: 32px;
+  }
+  .disc {
+    width: 26px;
+    height: 26px;
+    top: 3px;
+    left: 3px;
+  }
+}

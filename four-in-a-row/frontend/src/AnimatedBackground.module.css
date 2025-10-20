@@ -1,0 +1,120 @@
+/* Animated background for the game container */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 12s linear infinite;
+}
+
+.circle1 {
+  width: 180px;
+  height: 180px;
+  background: #ffb347;
+  left: 10vw;
+  top: 20vh;
+  animation-delay: 0s;
+}
+.circle2 {
+  width: 120px;
+  height: 120px;
+  background: #ff5e62;
+  left: 70vw;
+  top: 10vh;
+  animation-delay: 2s;
+}
+.circle3 {
+  width: 100px;
+  height: 100px;
+  background: #43e97b;
+  left: 50vw;
+  top: 70vh;
+  animation-delay: 4s;
+}
+.circle4 {
+  width: 140px;
+  height: 140px;
+  background: #38f9d7;
+  left: 80vw;
+  top: 60vh;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+}
+
+.spaceObject {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  box-shadow: 0 0 16px 4px rgba(255,255,255,0.3);
+  animation: drift 12s linear infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-60px) scale(1.2) rotate(20deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px #fff, 0 0 24px 4px #fff2;
+  opacity: 0.8;
+  animation: rotateStar linear infinite;
+}
+
+@keyframes rotateStar {
+  0% {
+    transform: rotate(0deg) translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateY(0) scale(1);
+    opacity: 0.8;
+  }
+}

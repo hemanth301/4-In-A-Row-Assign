@@ -1,0 +1,27 @@
+.disc {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  box-shadow: 0 0 16px #fff4, 0 0 32px #fff2 inset;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  transition: box-shadow 0.2s;
+}
+.red {
+  background: radial-gradient(circle at 30% 30%, #ff5e62 70%, #c81d25 100%);
+  box-shadow: 0 0 24px #ff5e6288, 0 0 8px #fff2 inset;
+}
+.yellow {
+  background: radial-gradient(circle at 30% 30%, #ffe066 70%, #f9d423 100%);
+  box-shadow: 0 0 24px #ffe06688, 0 0 8px #fff2 inset;
+}
+.animate {
+  animation: dropBounce 0.6s cubic-bezier(.42,0,.58,1);
+}
+@keyframes dropBounce {
+  0% { transform: translateY(-60px) scaleY(1.2); opacity: 0; }
+  60% { transform: translateY(0) scaleY(0.9); opacity: 1; }
+  80% { transform: translateY(-8px) scaleY(1.05); }
+  100% { transform: translateY(0) scaleY(1); }
+}
